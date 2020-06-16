@@ -24,7 +24,7 @@ pandoc -N --toc --smart --latex-engine=xelatex \
 --template=templates/template.tex \
 --listings \
 --columns=80 \
--V title="TiDB 中文手册" \
+-V title="TiDB Dashboard 用户手册" \
 -V author="PingCAP Inc." \
 -V date="${_version_tag}" \
 -V CJKmainfont="${MAINFONT}" \
