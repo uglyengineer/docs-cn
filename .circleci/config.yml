@@ -62,9 +62,6 @@ jobs:
 
 workflows:
   version: 2
-  lint:
-    jobs:
-      - lint
   build:
     jobs:
       - build
