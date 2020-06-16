@@ -53,15 +53,6 @@ jobs:
           name: "Generate PDF"
           command: scripts/generate_pdf.sh
 
-      # echo "222.222.95.49 uc.qbox.me": adds a new host
-      - deploy:
-          name: "Publish PDF"
-          command: |
-            sudo bash -c 'echo "222.222.95.49 uc.qbox.me" >> /etc/hosts';
-            if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              python3 scripts/upload.py output.pdf tidb-dev-zh-manual.pdf;
-            fi
-
       - run:
           name: "Copy Generated PDF"
           command: mkdir /tmp/artifacts && cp output.pdf doc.md /tmp/artifacts
@@ -76,8 +67,4 @@ workflows:
       - lint
   build:
     jobs:
-      - build:
-          filters:
-            branches:
-              only:
-                - master
+      - build
